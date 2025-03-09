@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Canva",
     "Adobe Photoshop",
     "Adobe Illustrator",
+    "InDesign",
     "Adobe Acrobat",
     "Microsoft Office",
   ];
@@ -288,7 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const awardsList = document.getElementById("awards-list");
   awardsData.forEach((award) => {
     const li = document.createElement("li");
-    li.innerHTML = `<strong>${award.name}</strong> - ${award.year}`;
+    const link = document.createElement("a");
+    link.href = "https://www.facebook.com/share/p/1DzTv6b2hZ/"; // Hardcoded URL
+    link.textContent = `${award.name} - ${award.year}`; // Set the text
+    link.target = "_blank"; // Open link in a new tab
+    li.appendChild(link); // Add the link to the list item
     awardsList.appendChild(li);
   });
 
